@@ -43,11 +43,8 @@ let result = null;
 let number = '';
  
 
-// let number = 0;
-
 calc.addEventListener('click',(btn) => {
-    // console.log((btn.target.className));
-    if(btn.target.className === 'button')
+    if(btn.target.className === 'button' || btn.target.className === 'btn-zero')
     {
         console.log(btn.target.textContent);
         
