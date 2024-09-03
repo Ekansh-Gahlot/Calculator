@@ -8,7 +8,6 @@ body{
     background-color: white;
     justify-content: center;
     align-items: center; 
-    /* gap: 24px; */
 }
 
 .heading-text{
@@ -24,20 +23,17 @@ body{
     justify-content: center;
     align-items: center;
     gap: 12px;
-    /* width: 300px; */
     background-color: black;
-    /* border: 12px solid black; */
     padding-top: 12px;
 }
 
 .calculator{
     display: flex;
-    /* border: 2px solid white; */
     padding: 9px;
 
 }
 
-.button-zero{
+.btn-zero{
     min-width: 305px;
 }
 
@@ -45,17 +41,12 @@ body{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    /* gap: 12px; */
     flex: 1;
 }
 
 .display{
     background-color: white;
-    /* min-width: 600px; */
     color: black;
-    /* border: 2px solid blue; */
-    /* height: 100%; */
-    /* font-size: calc(100% - 10px); */
     padding: 0;
     margin: 0;
     width: 97%;
@@ -76,7 +67,6 @@ button{
     font-weight: bold;
     text-align: center;
     min-width: 150px;
-    /* margin: 0px; */
 }
 
 button:hover{

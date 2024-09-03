@@ -49,6 +49,7 @@ calc.addEventListener('click',(btn) => {
     // console.log((btn.target.className));
     if(btn.target.className === 'button')
     {
+        console.log(btn.target.textContent);
         
         if(firstNumber && op)
         {
@@ -99,6 +100,17 @@ calc.addEventListener('click',(btn) => {
     {
         displayValue.innerHTML = result;
     }
+
+    if(btn.target.className === 'btn-AC'){
+        displayValue.innerHTML = '0';
+    }
+
+    // if(btn.target.className === 'btn-pm'){
+    //     console.log('the first number before is', firstNumber);
+    //     firstNumber = -firstNumber;
+    //     console.log('the first number after is', firstNumber);
+    //     displayValue.innerHTML = (firstNumber);
+    // }
 })
 
 
