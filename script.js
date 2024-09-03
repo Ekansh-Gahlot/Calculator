@@ -52,6 +52,7 @@ calc.addEventListener('click',(btn) => {
         
         if(firstNumber && op)
         {
+            number = '';
             number += btn.target.textContent
             number = Number(number);
             console.log('hi',number);   
@@ -59,8 +60,6 @@ calc.addEventListener('click',(btn) => {
             displayValue.innerHTML = secondNumber;
             console.log(op);
             console.log('the value of operator is',op);
-
-            // number = 0;
         }
         else if(!op){
             number += btn.target.textContent
@@ -80,6 +79,8 @@ calc.addEventListener('click',(btn) => {
     }
     
     if(op && firstNumber && secondNumber){
+        console.log('the first number to process is',firstNumber);
+        console.log('the second number to process is',secondNumber);
         result = operate(op,firstNumber,secondNumber);
         firstNumber = result;
         secondNumber = null;
