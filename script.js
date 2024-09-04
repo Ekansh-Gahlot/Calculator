@@ -9,9 +9,6 @@ let result = null;
 let number = '';
 const p = document.createElement('p');
 
-
- 
-
 function add(a,b){
     return a+b;
 }
@@ -37,7 +34,6 @@ function divide(a, b) {
         return null;
     }
 }
-
 
 function operate(operator, numOne, numTwo){
     // console.log('the value of operator is', operator);
