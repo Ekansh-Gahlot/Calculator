@@ -56,8 +56,6 @@ function operate(operator, numOne, numTwo){
 }
 
 
-
-
 calc.addEventListener('click',(btn) => {
     if(btn.target.className === 'button' || btn.target.className === 'btn-zero')
     {
@@ -73,6 +71,8 @@ calc.addEventListener('click',(btn) => {
         }        
        
     }
+
+
 
     if (btn.target.className === 'operator' && firstNumber !== null) {
         if (secondNumber !== null) {
@@ -124,6 +124,24 @@ calc.addEventListener('click',(btn) => {
         if(result)
         {
             result = -result;
+            displayValue.innerHTML = result;
+        }
+    }
+
+
+    if(btn.target.className === 'btn-percentage')
+    {
+        if(firstNumber){ 
+            firstNumber = firstNumber/100;
+            displayValue.innerHTML = firstNumber; 
+        }
+        if(secondNumber){
+            secondNumber = secondNumber/100;
+            displayValue.innerHTML = secondNumber;
+        }
+        if(result)
+        {
+            result = result/100;
             displayValue.innerHTML = result;
         }
     }
