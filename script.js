@@ -1,3 +1,16 @@
+const displayValue = document.querySelector('.text-dummy')
+const calc = document.querySelector('.calculator');
+let value;
+let firstNumber = null;
+let secondNumber = null;
+let op = null;
+let result = null;
+let number = '';
+const p = document.createElement('p');
+
+
+ 
+
 function add(a,b){
     return a+b;
 }
@@ -11,10 +24,19 @@ function multiply(a,b){
 }
 
 function divide(a, b) {
+    console.log('The value of a is', a);
+    console.log('The value of b is', b);
+
     if (b !== 0) {
         return a/b;
     } else {
+        const displayChild = document.querySelector('.display');
+        p.innerHTML = 'Go home and take elementary class!'
+        p.setAttribute('style','color:lightgreen; font-size: 36px; font-weight: bold; text-align:end; box-sizing: border-box;');
+        displayChild.appendChild(p);
+        console.log(displayChild);
         console.log("Cannot divide by zero");
+        return null;
     }
 }
 
@@ -29,61 +51,47 @@ function operate(operator, numOne, numTwo){
         case '/': result = divide(numOne,numTwo); break;
         default: console.log("Invalid operator"); return;
     }
+
     return result;
 }
 
 
-const calc = document.querySelector('.calculator');
-const displayValue = document.querySelector('.text-dummy')
-let value;
-let firstNumber;
-let secondNumber;
-let op = null;
-let result = null;
-let number = '';
- 
+
 
 calc.addEventListener('click',(btn) => {
     if(btn.target.className === 'button' || btn.target.className === 'btn-zero')
     {
         console.log(btn.target.textContent);
-        
-        if(firstNumber && op)
+        number += btn.target.textContent;
+        displayValue.innerHTML = number;
+        if(!op)
         {
-            number = '';
-            number += btn.target.textContent
-            number = Number(number);
-            console.log('hi',number);   
-            secondNumber = number;
-            displayValue.innerHTML = secondNumber;
-            console.log(op);
-            console.log('the value of operator is',op);
+            firstNumber = Number(number);
         }
-        else if(!op){
-            number += btn.target.textContent
-            number = Number(number);
-            console.log('hello',number);    
-            firstNumber = number;
-            displayValue.innerHTML = firstNumber;
-            console.log('the value of operator is',op);
+        else{
+            secondNumber = Number(number);
         }        
        
     }
-    
-    // console.log(btn.target.className);
-    if(btn.target.className === 'operator'){
+
+    if (btn.target.className === 'operator' && firstNumber !== null) {
+        if (secondNumber !== null) {
+            result = operate(op, firstNumber, secondNumber);
+            displayValue.innerHTML = result;
+            firstNumber = result;
+            secondNumber = null;
+        }
         op = btn.target.textContent;
-        console.log(op);
+        number = '';
     }
     
-    if(op && firstNumber && secondNumber){
-        console.log('the first number to process is',firstNumber);
-        console.log('the second number to process is',secondNumber);
-        result = operate(op,firstNumber,secondNumber);
+    if (btn.target.className === 'btn-equals' && op && secondNumber !== null) {
+        result = operate(op, firstNumber, secondNumber);
+        displayValue.innerHTML = result;
         firstNumber = result;
         secondNumber = null;
-        number = '';
         op = null;
+        number = '';
     }
 
     if(result && btn.target.className === 'operator')
@@ -93,21 +101,15 @@ calc.addEventListener('click',(btn) => {
         secondNumber = null;
     }
 
-    if((op === '=') && result)
-    {
-        displayValue.innerHTML = result;
-    }
-
     if(btn.target.className === 'btn-AC'){
         displayValue.innerHTML = '0';
+        result = null;
+        op = null;
+        number = '';
+        firstNumber = null;
+        secondNumber = null;
+        p.remove();
     }
-
-    // if(btn.target.className === 'btn-pm'){
-    //     console.log('the first number before is', firstNumber);
-    //     firstNumber = -firstNumber;
-    //     console.log('the first number after is', firstNumber);
-    //     displayValue.innerHTML = (firstNumber);
-    // }
 })
 
 
