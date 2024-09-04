@@ -45,9 +45,9 @@ function operate(operator, numOne, numTwo){
     // console.log('the value of operator is', operator);
     let result;
     switch (operator){
-        case '+': result =  add(numOne,numTwo); break;
-        case '-': result = subtract(numOne,numTwo); break;
-        case '*': result = multiply(numOne,numTwo); break;
+        case '÷': result =  add(numOne,numTwo); break;
+        case '−': result = subtract(numOne,numTwo); break;
+        case '×': result = multiply(numOne,numTwo); break;
         case '/': result = divide(numOne,numTwo); break;
         default: console.log("Invalid operator"); return;
     }
@@ -59,7 +59,7 @@ function operate(operator, numOne, numTwo){
 calc.addEventListener('click',(btn) => {
     if(btn.target.className === 'button' || btn.target.className === 'btn-zero')
     {
-        console.log(btn.target.textContent);
+        // console.log(btn.target.textContent);
         number += btn.target.textContent;
         displayValue.innerHTML = number;
         if(!op)
