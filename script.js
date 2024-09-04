@@ -1,5 +1,6 @@
 const displayValue = document.querySelector('.text-dummy')
 const calc = document.querySelector('.calculator');
+const dotBtn = document.querySelector('.btn-dot');
 let value;
 let firstNumber = null;
 let secondNumber = null;
@@ -24,9 +25,6 @@ function multiply(a,b){
 }
 
 function divide(a, b) {
-    console.log('The value of a is', a);
-    console.log('The value of b is', b);
-
     if (b !== 0) {
         return a/b;
     } else {
@@ -45,10 +43,10 @@ function operate(operator, numOne, numTwo){
     // console.log('the value of operator is', operator);
     let result;
     switch (operator){
-        case '÷': result =  add(numOne,numTwo); break;
+        case '+': result =  add(numOne,numTwo); break;
         case '−': result = subtract(numOne,numTwo); break;
         case '×': result = multiply(numOne,numTwo); break;
-        case '/': result = divide(numOne,numTwo); break;
+        case '÷': result = divide(numOne,numTwo); break;
         default: console.log("Invalid operator"); return;
     }
 
@@ -72,6 +70,16 @@ calc.addEventListener('click',(btn) => {
        
     }
 
+    if(btn.target.className ==='btn-dot')
+    {
+        if(number === '')
+        {
+            number = '0';
+        }
+        if(!(displayValue.innerHTML.includes('.')))
+        number += btn.target.textContent;
+        displayValue.innerHTML = number;
+    }
 
 
     if (btn.target.className === 'operator' && firstNumber !== null) {
