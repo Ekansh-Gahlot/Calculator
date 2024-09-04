@@ -110,6 +110,23 @@ calc.addEventListener('click',(btn) => {
         secondNumber = null;
         p.remove();
     }
+
+    if(btn.target.className === 'btn-pm'){
+        if(firstNumber)
+        {
+            firstNumber = -firstNumber;
+            displayValue.innerHTML = firstNumber;
+        }
+        if(secondNumber){
+            secondNumber = -secondNumber;
+            displayValue.innerHTML = secondNumber;
+        }
+        if(result)
+        {
+            result = -result;
+            displayValue.innerHTML = result;
+        }
+    }
 })
 
 
