@@ -76,6 +76,14 @@ calc.addEventListener('click',(btn) => {
         {
             number = '0';
         }
+        if(result)
+        {
+            result = null;
+            op = null;
+            number = '0';
+            firstNumber = null;
+            secondNumber = null;
+        }
         if(!(displayValue.innerHTML.includes('.')))
         number += btn.target.textContent;
         displayValue.innerHTML = number;

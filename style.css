@@ -18,9 +18,11 @@ body{
     font-weight: bold;
     flex: 1;
 }
+
 .btn-AC{
     background-color: lightblue;
 }
+
 .container{
     display: flex;
     flex-direction: column;
@@ -30,7 +32,6 @@ body{
     background-color: black;
     padding-top: 12px;
     border-radius: 12px;
-  
 }
 
 .calculator{
